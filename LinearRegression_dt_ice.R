@@ -42,19 +42,15 @@ library(DAAG)
 
 ##cross validation with different number of folds (k value)
 
-library(DAAG)
-cvResults5 <- suppressWarnings(CVlm(icecream, form.lm=Revenue ~ Temperature, m=20, dots=FALSE, seed=29, legend.pos="topleft",  printit=FALSE));  # performs the CV
-attr(cvResults5, 'ms')  
+out10 <- cv.lm(data = icecream, form.lm = Revenue ~ Temperature, m = 10)
+out4 <- cv.lm(data = icecream, form.lm = Revenue ~ Temperature, m = 4)
+out3 <- cv.lm(data = icecream, form.lm = Revenue ~ Temperature, m = 3)
+out2 <- cv.lm(data = icecream, form.lm = Revenue ~ Temperature, m = 2)
 
-cvResults4 <- suppressWarnings(CVlm(icecream, form.lm=Revenue ~ Temperature, m=4, dots=FALSE, seed=29, legend.pos="topleft",  printit=FALSE));  # performs the CV
-attr(cvResults4, 'ms')
-
-cvResults3 <- suppressWarnings(CVlm(icecream, form.lm=Revenue ~ Temperature, m=3, dots=FALSE, seed=29, legend.pos="topleft",  printit=FALSE));  # performs the CV
-attr(cvResults3, 'ms')
-
-cvResults2 <- suppressWarnings(CVlm(icecream, form.lm=Revenue ~ Temperature, m=2, dots=FALSE, seed=29, legend.pos="topleft",  printit=FALSE));  # performs the CV
-attr(cvResults2, 'ms')
-
+attr(out10, 'ms')
+attr(out4, 'ms')
+attr(out3, 'ms')
+attr(out2, 'ms')
 
 # Create Training and Test data with different sizes
 
